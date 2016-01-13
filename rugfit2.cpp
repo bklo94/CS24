@@ -1,23 +1,5 @@
 // rugfit2.cpp - calculates fit of rug to a floor
 // Brandon Lo 1/12/16
-/*In the definition of class Rectangle: declare a function named area that will take no arguments
-and will return a double value. Make the function const - meaning it promises not to change the
-object on which it is called - just like the getWidth and getLength functions that are already
- declared in the skeleton.
-Scroll down past the end of the class definition and past the existing
-definitions of the constructor and four standard get and set methods, and
-then define the area method you declared above. Look at the other method
-definitions as examples for how to do it - notice they use the scope resolution
-operator to identify their connection to a particular class, as in Rectangle::setLength
- which identifies it as pertaining to class Rectangle. Return the value of length times width.
-In the main function: prompt the user for the width and length of the rug,
-read those two values from the user, and then reset the width and length of
-the Rectangle object named rug with the user's dimensions (using the rug's setWidth
-and setLength methods, of course). As a reminder, you use the object's name, the dot
-operator, and the name of the method to do such things. For example, if we wanted to
-find the value of the floor's width, we could do so by using the getWidth method
-as follows:*/
-
 
 #include <iostream>
 using namespace std;
@@ -69,17 +51,6 @@ void Rectangle::setLength(double l) {
 double Rectangle::area () const{
   return length * width;
 }
-
-/*In the main function: prompt the user for the width and length of the rug,
-read those two values from the user, and then reset the width and length of
-the Rectangle object named rug with the user's dimensions (using the rug's setWidth
-and setLength methods, of course). As a reminder, you use the object's name, the dot
-operator, and the name of the method to do such things. For example, if we wanted to
-find the value of the floor's width, we could do so by using the getWidth method
-as follows:
-Also in main: change the two assignment statements for floorArea and rugArea to use the area method for each of the floor and rug
- objects.Also in main: change the two assignment statements for floorArea and rugArea to use the area method for each of the floor and rug objects.
-*/
 
 // change main where instructed in UPPER CASE below
 // (usually would #include "rectangle.h" before main)
