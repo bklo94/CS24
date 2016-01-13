@@ -25,6 +25,7 @@ void statistician::next(double r){
     largest = r;
     tiniest = r;
   }
+
   if (r < largest){ //checks r if is tiny or not
     tiniest = r;
   }
@@ -86,14 +87,16 @@ statistician operator *(double scale, const statistician& s1){
   if (s1.length() == 0){
     return statistician();
   }
-  statistician s = statistician();
-  s.count = s1.count;
-  s.total = s1.total * scale;
-// If the scale is positive, everything is fine. If it's negative, the largest and the smallest must switch!
+
+  statistician s = statistician(); //creates a statistician s and checks it against s1
+  s.count = s1.count;              // contains same numbers that s does
+  s.total = s1.total * scale;      // each number multiplied by scale number
+
   if (scale > 0){
-    s.largest = s1.largest * scale;
+    s.largest = s1.largest * scale; 
     s.tiniest = s1.tiniest * scale;
   }
+
   else{
   s.largest = s1.tiniest * scale;
   s.tiniest = s1.tiniest * scale;
@@ -114,14 +117,14 @@ statistician operator +(const statistician& s1, const statistician& s2){
   statistician s = statistician();
   s.count = s1.count + s2.count;
   s.total = s1.total + s2.total;
-// Killing to birds here by checking if one is smaller or equal
+
   if(s1.tiniest < s2.tiniest || s1.tiniest == s2.tiniest){
     s.tiniest = s1.tiniest;
     }
   else{
     s.tiniest = s2.tiniest;
     }
-// Same story, but doing it with the largest
+
   if(s1.largest < s2.largest || s1.largest == s2.largest){
     s.largest = s2.largest;
     }
@@ -142,6 +145,7 @@ bool operator == (const statistician& s1, const statistician& s2){
 if( ( s1.length() == 0) && (s2.length() == 0) ){
 return true;
 }
+
 //Checks all the post conditions
 if( !(s1.length() == s2.length() ) ) return false;
 else if( !(s1.sum() == s2.sum() ) ) return false;
