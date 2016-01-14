@@ -26,7 +26,7 @@ void statistician::next(double r){
     tiniest = r;
   }
 
-  if (r < largest){ //checks r if is tiny or not
+  if (r < tiniest){ //checks r if is tiny or not
     tiniest = r;
   }
   if (r > largest){ //checks largest
@@ -66,7 +66,7 @@ double statistician::minimum( ) const{
 //     Postcondition: The return value is the tiniest number in the
 //     statistician's sequence.
     assert (count > 0);
-    return total/count;
+    return tiniest;
 }
 
 // returns maximum after checking it
@@ -87,13 +87,13 @@ statistician operator *(double scale, const statistician& s1){
   if (s1.length() == 0){
     return statistician();
   }
-
+  
   statistician s = statistician(); //creates a statistician s and checks it against s1
   s.count = s1.count;              // contains same numbers that s does
   s.total = s1.total * scale;      // each number multiplied by scale number
 
   if (scale > 0){
-    s.largest = s1.largest * scale; 
+    s.largest = s1.largest * scale;
     s.tiniest = s1.tiniest * scale;
   }
 
