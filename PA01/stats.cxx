@@ -87,19 +87,19 @@ statistician operator *(double scale, const statistician& s1){
   if (s1.length() == 0){
     return statistician();
   }
-  
+
   statistician s = statistician(); //creates a statistician s and checks it against s1
   s.count = s1.count;              // contains same numbers that s does
   s.total = s1.total * scale;      // each number multiplied by scale number
 
-  if (scale > 0){
+  if (scale > 0){ 
     s.largest = s1.largest * scale;
     s.tiniest = s1.tiniest * scale;
   }
 
-  else{
+  else{ //if scale is negative, needs to be switched
   s.largest = s1.tiniest * scale;
-  s.tiniest = s1.tiniest * scale;
+  s.tiniest = s1.largest * scale;
   }
   return s;
 }
