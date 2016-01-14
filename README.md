@@ -1,2 +1,9 @@
 #PA01
-To run the file, Download stats.cpp stats.h stattest.cpp and the Makefile. Run make to create a stattest executable.
+* Created to understand class definitions and utilize header files.
+* I looked up the documentation to create a Makefile to streamline the implementation and testing process.
+##Instructions
+* To run the file, download stats.cpp stats.h stattest.cpp and the Makefile.
+* cd into the directory with the files and then enter make into the terminal.
+* Run the stattest executable in the terminal.
+
+#PA02
