@@ -1,5 +1,9 @@
-// FILE: poly0.h
-// CLASS PROVIDED:
+//FILEL poly0.cxx
+//Brandon Lo 1/13/15
+
+#include <cassert>  // provides assert
+#include "poly0.h"  // defines what must be implemented
+
 //   class polynomial (in the namespace main_savitch_3)
 //     A polynomial has one variable x, real number coefficients, and
 //     non-negative integer exponents. Such a polynomial can be viewed
@@ -8,7 +12,22 @@
 //     where the A[n] are the real number coefficients and x^i represents
 //     the variable x raised to the i power. The coefficient A[0] is
 //     called the "constant" or "zeroth" term of the polynomial.
-//
+
+namespace main_savitch_3{
+
+polynomial::polynomial(double c = 0.0, unsigned int exponent = 0){
+// CONSTRUCTOR for the polynomial class
+//   polynomial(double c = 0.0, unsigned int exponent = 0)
+//     PRECONDITION: exponent <= MAX_EX.
+//     POSTCONDITION: This polynomial has been create with all zero
+//     coefficients, except for coefficient c for the specified exponent.
+//     When used as a default constructor (using default values for
+//     both arguments), the result is a polynomial with all zero
+//     coefficients.
+assert(exponent <= MAX_EX);
+
+}
+
 // NOTES TO STUDENT:
 //   1. This version works by storing the coefficients in
 //      a fixed array. The coefficient for the x^k term is stored
@@ -23,15 +42,7 @@
 //   const static size_t MAX_EX = CAPACITY - 1;
 //     The maximum exponent permitted.
 //
-// CONSTRUCTOR for the polynomial class
-//   polynomial(double c = 0.0, unsigned int exponent = 0)
-//     PRECONDITION: exponent <= MAX_EX.
-//     POSTCONDITION: This polynomial has been create with all zero
-//     coefficients, except for coefficient c for the specified exponent.
-//     When used as a default constructor (using default values for
-//     both arguments), the result is a polynomial with all zero
-//     coefficients.
-//
+
 // MODIFICATION MEMBER FUNCTIONS for the polynomial class
 //   void add_to_coef(double amount, unsigned int exponent)
 //     PRECONDITION: exponent <= MAX_EX.
@@ -100,53 +111,5 @@
 // NON-MEMBER OUTPUT FUNCTION for the polynomial Class
 //   ostream& operator << (ostream& out, const polynomial& p)
 //     POSTCONDITION: The polynomial has been printed to ostream out, which,
-//     in turn, has been returned to the calling function.
-
-#ifndef POLY0_H
-#define POLY0_H
-#include <iostream>  // Provides ostream
-
-namespace main_savitch_3
-{
-
-    class polynomial
-    {
-    public:
-	// CONSTANTS
-	static const unsigned int CAPACITY = 30;
-	static const unsigned int MAX_EX = CAPACITY - 1;
-
-        // CONSTRUCTOR
-	polynomial(double c = 0.0, unsigned int exponent = 0);
-
-	// MODIFICATION MEMBER FUNCTIONS
-	void add_to_coef(double amount, unsigned int exponent);
-	void assign_coef(double coefficient, unsigned int exponent);
-	void clear( );
-
-	// CONSTANT MEMBER FUNCTIONS
-	double coefficient(unsigned int exponent) const;
-	unsigned int degree( ) const { return current_degree; }
-	polynomial derivative( ) const;
-	double eval(double x) const;
-	unsigned int next_term(unsigned int e) const;
-	unsigned int previous_term(unsigned int e) const;
-
-	// CONSTANT OPERATORS
-	double operator( ) (double x) const { return eval(x); }
-
-    private:
-	double coef[CAPACITY];
-	unsigned int current_degree;
-    };
-
-    // NON-MEMBER BINARY OPERATORS
-    polynomial operator +(const polynomial& p1, const polynomial& p2);
-    polynomial operator -(const polynomial& p1, const polynomial& p2);
-    polynomial operator *(const polynomial& p1, const polynomial& p2);
-
-    // NON-MEMBER OUTPUT FUNCTION
-    std::ostream& operator << (std::ostream& out, const polynomial& p);
-
+//     in turn, has been returned to the calling function
 }
-#endif
