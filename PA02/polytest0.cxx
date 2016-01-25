@@ -155,7 +155,7 @@ size_t set_current( )
 {
     size_t i;
     char command;
-    
+
     do
     {
 	cout << "Polynomials ";
@@ -213,7 +213,7 @@ void test_eval(const polynomial& test)
 void view_all(const polynomial p[])
 {
     size_t i;
-    
+
     cout << endl;
 
     for (i = 0; i < MANY; ++i)

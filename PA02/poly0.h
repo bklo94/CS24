@@ -117,7 +117,7 @@ namespace main_savitch_3
 	static const unsigned int MAX_EX = CAPACITY - 1;
 
         // CONSTRUCTOR
-	polynomial(double c = 0.0, unsigned int exponent = 0);
+  polynomial(double c = 0.0, unsigned int exponent = 0);
 
 	// MODIFICATION MEMBER FUNCTIONS
 	void add_to_coef(double amount, unsigned int exponent);
